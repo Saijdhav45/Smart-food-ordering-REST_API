@@ -1,0 +1,24 @@
+target/
+bin/
+
+#STS/Eclipse
+.classpath
+.project
+.settings/
+
+#Intellij
+.idea/
+.*iml
+
+#VS code
+.vscode/
+
+#Logs
+*.log
+
+#Application secreats 
+src/main/resources/application.properties
+src/main/resources/application.yml
+
+#OS Files
+.DS_Store
