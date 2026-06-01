@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 
+import jakarta.servlet.http.HttpServletRequest;
+
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
@@ -73,5 +75,22 @@ public class GlobalExceptionHandler {
                 buildError(errorMsg, request.getDescription(false), "Validation Failed"),
                 HttpStatus.BAD_REQUEST
         );
+    }
+    
+    @ExceptionHandler(PaymentNotFoundException.class)
+    public ResponseEntity<ErrorResponse>
+    handlePaymentNotFoundException(
+            PaymentNotFoundException ex,
+            HttpServletRequest request) {
+
+        ErrorResponse error = new ErrorResponse(
+                LocalDateTime.now(),
+                ex.getMessage(),
+                request.getRequestURI(),
+                HttpStatus.NOT_FOUND.getReasonPhrase());
+
+        return new ResponseEntity<>(
+                error,
+                HttpStatus.NOT_FOUND);
     }
 }

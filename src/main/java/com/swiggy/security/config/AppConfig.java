@@ -62,7 +62,19 @@ public class AppConfig {
 	            
 	            //Cart Api
 	            .requestMatchers("/api/cart/**").permitAll()
+	            
+	            //Payment API
+	            .requestMatchers("/api/payments/**").permitAll()
+	            
+	            //Restaurant API
+	                      .requestMatchers("/api/restaurant/**").permitAll()
 
+	               // Order Api
+	                      .requestMatchers("/api/order/**").permitAll()
+	                      
+	                //Payment Api
+	                      .requestMatchers("/api/payments/**").permitAll()
+	                      
 	            // All others
 	            .anyRequest().authenticated()
 	        )

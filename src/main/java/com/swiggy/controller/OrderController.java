@@ -24,7 +24,7 @@ import com.swiggy.entity.OrderStatus;
 import com.swiggy.service.OrderService;
 
 @RestController
-@RequestMapping("/order")
+@RequestMapping("/api/order")
 public class OrderController {
 	
 	@Autowired

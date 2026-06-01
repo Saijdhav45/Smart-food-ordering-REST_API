@@ -2,5 +2,13 @@ package com.swiggy.entity;
 
 public enum OrderStatus {
 	
-	CREATED,CONFIRMED,DELIVERED
+	 CREATED,
+
+	    PAYMENT_PENDING,
+
+	    CONFIRMED,
+
+	    DELIVERED,
+
+	    CANCELLED
 }
